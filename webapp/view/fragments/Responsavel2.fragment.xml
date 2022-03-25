@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<f:SimpleForm id="SimpleFormResponsavel2" editable="true" layout="ColumnLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="2"
+		labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+		singleContainerFullSize="false">
+		<Label text="{i18n>lblResponsavel}"/>
+		<Input id="Responsavel2"
+			value="{= ${registrarAbordagem>/Responsavel2/NOME} !== '' ? ${parts: [{path: 'registrarAbordagem>/Responsavel2/MATRICULA'}, {value: '-'}, {path: 'registrarAbordagem>/Responsavel2/NOME'}]} : ${path: 'registrarAbordagem>/Responsavel2/MATRICULA'}}"
+			showValueHelp="true" change="onChangeResponsavel" valueHelpRequest="onValueHelpResponsaveisRequest"/>
+		<Label text="{i18n>lblEmpresa}"/>
+		<Label text="{i18n>lblEmpresa}"/>
+		<Input id="CodEmpresa2" enabled="false" value="{registrarAbordagem>/Responsavel2/COD_EMPRESA}"/>
+		<Text id="DescEmpresa2" class="TextStyleResp" text="{registrarAbordagem>/Responsavel2/DESC_EMPRESA}"/>
+		<Label text="{i18n>lblUnidadeOrg}"/>
+		<Input id="UnidadeOrganizacional2" enabled="false" value="{registrarAbordagem>/Responsavel2/UNIDADE_ORGANIZACIONAL}"/>
+		<Text id="DescUniOrganizacional2" class="TextStyleResp" text="{registrarAbordagem>/Responsavel2/DESC_UNIDADE_ORG}"/>
+	</f:SimpleForm>
+</core:FragmentDefinition>

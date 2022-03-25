@@ -1,0 +1,202 @@
+<mvc:View controllerName="com.arcelor.ZREG_ABORDAGEM.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page title="{i18n>title}" showHeader="false">
+				<content>
+					<f:SimpleForm id="SimpleFormChange354" editable="true" title="{i18n>titleView}" layout="ColumnLayout" labelSpanXL="12" labelSpanL="12"
+						labelSpanM="12" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="2"
+						columnsL="2" columnsM="2" singleContainerFullSize="false">
+						<Label text="{i18n>lblTipoAbordagem}" required="true"/>
+						<Select id="TipoAbordagem" items="{registrarAbordagem>/ListaTipoAbordagem}" change="onChangeTipoAbordagem">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</Select>
+						<Label text="{i18n>lblMetodCoach}" required="true"/>
+						<Select id="MetodoCoach" selectedKey="N" change="onChangeMetodoCoach">
+							<core:Item key="S" text="Sim"/>
+							<core:Item key="N" text="Não"/>
+						</Select>
+						<Label text="{i18n>lblData}" required="true"/>
+						<DatePicker id="Data" displayFormat="dd/MM/yyyy" placeholder="dd/MM/aaaa"/>
+						<Label text="{i18n>lblEmpresaAbordada}" required="true"/>
+						<ComboBox id="EmpresaAbordada" items="{registrarAbordagem>/ListaEmprAbordada}">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</ComboBox>
+						<Label text="{i18n>lblAreaAbordada}" required="true"/>
+						<ComboBox id="AreaAbordada" items="{registrarAbordagem>/ListaAreaAbordada}" change="onChangeAreaAbordada">
+							<core:Item key="{registrarAbordagem>VALUE}"
+								text="{= ${registrarAbordagem>VALUE} !== '' ? ${parts: [{path: 'registrarAbordagem>TEXT'}, {value: '-'}, {path: 'registrarAbordagem>VALUE'}]} : ${registrarAbordagem>TEXT}}"/>
+						</ComboBox>
+						<Label text="{i18n>lblPessoaAbordada}" visible="{registrarAbordagem>/visiblePessoaAbordada}" required="true"/>
+						<ComboBox id="PessoaAbordada" items="{registrarAbordagem>/ListaPessoaAbordada}" visible="{registrarAbordagem>/visiblePessoaAbordada}">
+							<core:Item key="{registrarAbordagem>VALUE}"
+								text="{= ${registrarAbordagem>VALUE} !== '' ? ${parts: [{path: 'registrarAbordagem>TEXT'}, {value: '-'}, {path: 'registrarAbordagem>VALUE'}]} : ${registrarAbordagem>TEXT}}"/>
+						</ComboBox>
+						<Label text="{i18n>lblLocalInst}" required="true"/>
+						<ComboBox id="LocalInstalacao" items="{registrarAbordagem>/ListaLocaisInst}">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT} ({registrarAbordagem>VALUE})"/>
+						</ComboBox>
+						<Label text="{i18n>lblHouveDesvio}" required="true"/>
+						<Select id="HouveDesvio" selectedKey="" change="onChangeHouveDesvio">
+							<core:Item key="" text=""/>
+							<core:Item key="S" text="Sim"/>
+							<core:Item key="N" text="Não"/>
+						</Select>
+						<Label text="{i18n>lblGrauRisco}" visible="{registrarAbordagem>/visibleGrauRisco}" required="true"/>
+						<Select id="GrauRisco" items="{registrarAbordagem>/ListaGrausRisco}" visible="{registrarAbordagem>/visibleGrauRisco}">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</Select>
+						<Label text="{i18n>lblClassif}" required="true" visible="{registrarAbordagem>/visibleClassificacao}"/>
+						<ComboBox id="Classificacao" items="{registrarAbordagem>/ListaClassificacoes}" visible="{registrarAbordagem>/visibleClassificacao}"
+							change="onChangeClassifacao">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</ComboBox>
+						<Label text="{i18n>lbltipoEPI}" visible="{registrarAbordagem>/visibleTipoEPI}" required="true"/>
+						<Select id="TipoEPI" items="{registrarAbordagem>/ListaEPI}" visible="{registrarAbordagem>/visibleTipoEPI}">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</Select>
+						<Label text="{i18n>lblEstratifDesvioShort}" visible="{registrarAbordagem>/visibleEstratfDesvio}" tooltip="{i18n>lblEstratifDesvioLarge}"
+							required="true"/>
+						<Select id="EstratificacaoDesvio" items="{registrarAbordagem>/ListaEstratificacaoDesvio}"
+							visible="{registrarAbordagem>/visibleEstratfDesvio}">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</Select>
+						<Label text="{i18n>lblRisco}" required="true" visible="{registrarAbordagem>/visibleRisco}"/>
+						<ComboBox id="Risco" items="{registrarAbordagem>/ListaRiscos}" visible="{registrarAbordagem>/visibleRisco}">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</ComboBox>
+						<Label text="{i18n>lblDescricao}" required="true"/>
+						<TextArea id="DescricaoAbordagem" value="{registrarAbordagem>/TextAreaDescAbordagem}" height="5rem"/>
+						<Label text="{i18n>lblAcaoImediata}" required="true"/>
+						<TextArea id="AcaoImediata" value="{registrarAbordagem>/TextAreaDescAcaoImediata}" height="5rem"/>
+						<Label text="{i18n>lblEvento}" required="true"/>
+						<Select id="Evento" items="{registrarAbordagem>/ListaEventos}">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</Select>
+						<Label text="{i18n>lblHouveViolacao}" required="true"/>
+						<Select id="HouveViolacao" items="{registrarAbordagem>/ListaHouveViolacao}">
+							<core:Item key="{registrarAbordagem>DOMVALUE_L}" text="{registrarAbordagem>DDTEXT}"/>
+						</Select>
+						<Label text="{i18n>lblAbordRealizadaQualInstante}" required="true"/>
+						<Select id="InstanteAbordagem" items="{registrarAbordagem>/ListaInstanteAbord}">
+							<core:Item key="{registrarAbordagem>DOMVALUE_L}" text="{registrarAbordagem>DDTEXT}"/>
+						</Select>
+					</f:SimpleForm>
+					<f:SimpleForm visible="{registrarAbordagem>/visibleDefIndiceCompSeguro}" id="SimpleFormIdenfIndice" editable="true" layout="ColumnLayout"
+						title="{i18n>TitleDefIndiceCompSeguro}" labelSpanXL="12" labelSpanL="12" labelSpanM="12" labelSpanS="12" adjustLabelSpan="false"
+						emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="2" singleContainerFullSize="false">
+						<Label text="{i18n>lblEmpIndentCtrlRisco}" required="true"/>
+						<Select id="ControlouRisco" selectedKey="S"
+							change="onChangeCamposDefIndice('ControlouRisco', '/visiblePotencialRisco1', '/visibleCodAtivador1','PotencialRisco1','CodigoAtivador1')">
+							<core:Item key="S" text="Sim"/>
+							<core:Item key="N" text="Não"/>
+						</Select>
+						<Label text="{i18n>lblPotencialRisco}" required="true" visible="{registrarAbordagem>/visiblePotencialRisco1}"/>
+						<Select id="PotencialRisco1" items="{registrarAbordagem>/ListaGrausRisco}" visible="{registrarAbordagem>/visiblePotencialRisco1}"
+							change="onCalculaICS">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</Select>
+						<Label text="{i18n>lblCodAtivador}" required="true" visible="{registrarAbordagem>/visibleCodAtivador1}"/>
+						<ComboBox id="CodigoAtivador1" items="{registrarAbordagem>/ListaCodAtivadores}" visible="{registrarAbordagem>/visibleCodAtivador1}">
+							<core:Item key="{registrarAbordagem>COD_ATIV}" text="{registrarAbordagem>ATIVADORES}"/>
+						</ComboBox>
+						<Label text="{i18n>lblUtilizandoEPIsCorretos}" required="true"/>
+						<Select id="EPIsCorretos" selectedKey="S"
+							change="onChangeCamposDefIndice('EPIsCorretos','/visiblePotencialRisco2', '/visibleCodAtivador2', 'PotencialRisco2', 'CodigoAtivador2')">
+							<core:Item key="S" text="Sim"/>
+							<core:Item key="N" text="Não"/>
+						</Select>
+						<Label text="{i18n>lblPotencialRisco}" required="true" visible="{registrarAbordagem>/visiblePotencialRisco2}"/>
+						<Select id="PotencialRisco2" items="{registrarAbordagem>/ListaGrausRisco}" visible="{registrarAbordagem>/visiblePotencialRisco2}"
+							change="onCalculaICS">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</Select>
+						<Label text="{i18n>lblCodAtivador}" required="true" visible="{registrarAbordagem>/visibleCodAtivador2}"/>
+						<ComboBox id="CodigoAtivador2" items="{registrarAbordagem>/ListaCodAtivadores}" visible="{registrarAbordagem>/visibleCodAtivador2}">
+							<core:Item key="{registrarAbordagem>COD_ATIV}" text="{registrarAbordagem>ATIVADORES}"/>
+						</ComboBox>
+						<Label text="{i18n>lblUtilizandoFerramentasCorretas}" required="true"/>
+						<Select id="FerramentasCorretas" selectedKey="S"
+							change="onChangeCamposDefIndice('FerramentasCorretas','/visiblePotencialRisco3', '/visibleCodAtivador3', 'PotencialRisco3', 'CodigoAtivador3')">
+							<core:Item key="S" text="Sim"/>
+							<core:Item key="N" text="Não"/>
+						</Select>
+						<Label text="{i18n>lblPotencialRisco}" required="true" visible="{registrarAbordagem>/visiblePotencialRisco3}"/>
+						<Select id="PotencialRisco3" items="{registrarAbordagem>/ListaGrausRisco}" visible="{registrarAbordagem>/visiblePotencialRisco3}"
+							change="onCalculaICS">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</Select>
+						<Label text="{i18n>lblCodAtivador}" required="true" visible="{registrarAbordagem>/visibleCodAtivador3}"/>
+						<ComboBox id="CodigoAtivador3" items="{registrarAbordagem>/ListaCodAtivadores}" visible="{registrarAbordagem>/visibleCodAtivador3}">
+							<core:Item key="{registrarAbordagem>COD_ATIV}" text="{registrarAbordagem>ATIVADORES}"/>
+						</ComboBox>
+						<Label text="{i18n>lblSeguindoNormasMetodosPlanej}" required="true"/>
+						<Select id="SeguindoNormas" selectedKey="S"
+							change="onChangeCamposDefIndice('SeguindoNormas','/visiblePotencialRisco4', '/visibleCodAtivador4', 'PotencialRisco4', 'CodigoAtivador4')">
+							<core:Item key="S" text="Sim"/>
+							<core:Item key="N" text="Não"/>
+						</Select>
+						<Label text="{i18n>lblPotencialRisco}" required="true" visible="{registrarAbordagem>/visiblePotencialRisco4}"/>
+						<Select id="PotencialRisco4" items="{registrarAbordagem>/ListaGrausRisco}" visible="{registrarAbordagem>/visiblePotencialRisco4}"
+							change="onCalculaICS">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</Select>
+						<Label text="{i18n>lblCodAtivador}" required="true" visible="{registrarAbordagem>/visibleCodAtivador4}"/>
+						<ComboBox id="CodigoAtivador4" items="{registrarAbordagem>/ListaCodAtivadores}" visible="{registrarAbordagem>/visibleCodAtivador4}">
+							<core:Item key="{registrarAbordagem>COD_ATIV}" text="{registrarAbordagem>ATIVADORES}"/>
+						</ComboBox>
+						<Label text="{i18n>lblFoiTreinado}" required="true"/>
+						<Select id="FoiTreinado" selectedKey="S"
+							change="onChangeCamposDefIndice('FoiTreinado','/visiblePotencialRisco5', '/visibleCodAtivador5', 'PotencialRisco5', 'CodigoAtivador5')">
+							<core:Item key="S" text="Sim"/>
+							<core:Item key="N" text="Não"/>
+						</Select>
+						<Label text="{i18n>lblPotencialRisco}" required="true" visible="{registrarAbordagem>/visiblePotencialRisco5}"/>
+						<Select id="PotencialRisco5" items="{registrarAbordagem>/ListaGrausRisco}" visible="{registrarAbordagem>/visiblePotencialRisco5}"
+							change="onCalculaICS">
+							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
+						</Select>
+						<Label text="{i18n>lblCodAtivador}" required="true" visible="{registrarAbordagem>/visibleCodAtivador5}"/>
+						<ComboBox id="CodigoAtivador5" items="{registrarAbordagem>/ListaCodAtivadores}" visible="{registrarAbordagem>/visibleCodAtivador5}">
+							<core:Item key="{registrarAbordagem>COD_ATIV}" text="{registrarAbordagem>ATIVADORES}"/>
+						</ComboBox>
+						<Label text="{i18n>lblICS}" required="true"/>
+						<Input id="ICSVal" value="{registrarAbordagem>/ics}" enabled="false"/>
+						<Label text="{i18n>lblCompromissoFirmado}" required="true"/>
+						<Select id="CompromissoFirmado" selectedKey="N" change="onChangeCompromissoFirmado">
+							<core:Item key="S" text="Sim"/>
+							<core:Item key="N" text="Não"/>
+						</Select>
+						<Label text="{i18n>lblDescricao}" required="true"/>
+						<TextArea id="DescricaoComprFirmado" value="{registrarAbordagem>/TextAreaDescComprFirmado}"
+							visible="{registrarAbordagem>/visibleDescricaoCompFirmado}" height="5rem"/>
+					</f:SimpleForm>
+					<IconTabBar expandable="false" id="iconTabResponsavel" select="onGetAbaResponsavelkey" selectedKey="{registrarAbordagem>/Initial_Fragment}">
+						<items>
+							<IconTabFilter id="responsavelPrincipal" key="RespPrincipalFragment" text="{i18n>lblResponsavelPrincipal}">
+								<core:Fragment fragmentName="com.arcelor.ZREG_ABORDAGEM.view.fragments.ResponsavelPrincipal" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter id="responsavel1" key="1" text="{i18n>lblResponsavel1}" enabled="{registrarAbordagem>/habilitarResp1}">
+								<core:Fragment fragmentName="com.arcelor.ZREG_ABORDAGEM.view.fragments.Responsavel1" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter id="responsavel2" key="2" text="{i18n>lblResponsavel2}" enabled="{registrarAbordagem>/habilitarResp2}">
+								<core:Fragment fragmentName="com.arcelor.ZREG_ABORDAGEM.view.fragments.Responsavel2" type="XML"/>
+							</IconTabFilter>
+							<IconTabFilter id="responsavel3" key="3" text="{i18n>lblResponsavel3}" enabled="{registrarAbordagem>/habilitarResp3}">
+								<core:Fragment fragmentName="com.arcelor.ZREG_ABORDAGEM.view.fragments.Responsavel3" type="XML"/>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<content>
+							<ToolbarSpacer/>
+							<Button text="{i18n>btnGravar}" type="Ghost" press="validaDadosAbordagem"/>
+						</content>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

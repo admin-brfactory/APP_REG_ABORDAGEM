@@ -1,0 +1,20 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<f:SimpleForm id="SimpleFormResponsavelPrincipal" editable="true" layout="ColumnLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="2"
+		labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+		singleContainerFullSize="false">
+		<Label text="{i18n>lblResponsavel}"/>
+		<Input id="ResponsavelPrincipal"
+			value="{= ${registrarAbordagem>/ResponsavelPrincipal/NOME} !== '' ? ${parts: [{path: 'registrarAbordagem>/ResponsavelPrincipal/MATRICULA'}, {value: '-'}, {path: 'registrarAbordagem>/ResponsavelPrincipal/NOME'}]} : ${path: 'registrarAbordagem>/ResponsavelPrincipal/MATRICULA'}}"
+			showValueHelp="true" change="onChangeResponsavel" valueHelpRequest="onValueHelpResponsaveisRequest"/>
+		<Label text="{i18n>lblSite}"/>
+		<Input id="CodEmpresaPrincial" enabled="false" value="{registrarAbordagem>/ResponsavelPrincipal/COD_EMPRESA}"/>
+		<Text id="DescEmpresaPrincial" class="TextStyleResp" text="{registrarAbordagem>/ResponsavelPrincipal/DESC_EMPRESA}"/>
+		<Label text="{i18n>lblEmpresa}"/>
+		<Input id="NomeEmpresaLongo" enabled="false" value="{registrarAbordagem>/ResponsavelPrincipal/NOME_EMPRESA_LONGO}"/>
+		<Text class="TextStyleResp" text=""/>
+		<Label text="{i18n>lblUnidadeOrg}"/>
+		<Input id="UnidadeOrganizacionalPrincipal" enabled="false" value="{registrarAbordagem>/ResponsavelPrincipal/UNIDADE_ORGANIZACIONAL}"/>
+		<Text id="DescUniOrganizacionalPrincipal" class="TextStyleResp" text="{registrarAbordagem>/ResponsavelPrincipal/DESC_UNIDADE_ORG}"/>
+	</f:SimpleForm>
+</core:FragmentDefinition>

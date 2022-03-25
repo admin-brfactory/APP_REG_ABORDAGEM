@@ -1,0 +1,42 @@
+<edmx:Edmx
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+    xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+    xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema
+            xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZSEHS_REGISTRO_ABORDAGEM_SRV" xml:lang="pt" sap:schema-version="1">
+            <EntityType Name="GET_SELECOES" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="USUARIO"/>
+                </Key>
+                <Property Name="USUARIO" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Usuário" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LIST_TIPO_ABORDAGEM" Type="Edm.String" sap:unicode="false" sap:label="Lista de tipos de abordagem" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LIST_EMPRESA_ABORDADA" Type="Edm.String" sap:unicode="false" sap:label="Lista de empresas para abordagem" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LIST_AREA_ABORDADA" Type="Edm.String" sap:unicode="false" sap:label="Lista de áreas para abordagem" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LISTA_LOCAIS_INSTALACAO" Type="Edm.String" sap:unicode="false" sap:label="Lista de locais de instalação" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LISTA_GRAU_RISCO" Type="Edm.String" sap:unicode="false" sap:label="Lista de graus de risco" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LISTA_CLASSIFICACAO" Type="Edm.String" sap:unicode="false" sap:label="Lista de classificações" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LISTA_RISCOS" Type="Edm.String" sap:unicode="false" sap:label="Lista de riscos" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LISTA_EVENTOS" Type="Edm.String" sap:unicode="false" sap:label="Lista de eventos" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LISTA_HOUVE_VIOLACAO" Type="Edm.String" sap:unicode="false" sap:label="Lista houve violação" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LISTA_INSTANTE_ABORDAGEM" Type="Edm.String" sap:unicode="false" sap:label="Lista instante da abordagem" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LISTA_CODIGO_ATIVADOR" Type="Edm.String" sap:unicode="false" sap:label="lLista código ativador" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LISTA_RESPONSAVEL" Type="Edm.String" sap:unicode="false" sap:label="Lista de responsáveis" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NOME_RESPONSAVEL" Type="Edm.String" sap:unicode="false" sap:label="Nome do responsável" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NOME_EMPRESA_LONGO" Type="Edm.String" sap:unicode="false" sap:label="Nome da empresa" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UNIDADE_ORGANIZACIONAL" Type="Edm.String" sap:unicode="false" sap:label="Unidade organizacional" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="COD_EMRPESA" Type="Edm.String" sap:unicode="false" sap:label="Código empresa" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DESC_UN_ORG" Type="Edm.String" sap:unicode="false" sap:label="Descrição unidade organizacional" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DESC_EMPRESA" Type="Edm.String" sap:unicode="false" sap:label="Descrição empresa" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MATRICULA_RESPONSAVEL" Type="Edm.String" sap:unicode="false" sap:label="Matrícula do responsável" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZSEHS_REGISTRO_ABORDAGEM_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="GET_SELECOESSet" EntityType="ZSEHS_REGISTRO_ABORDAGEM_SRV.GET_SELECOES" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link
+                xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/opu/odata/sap/ZSEHS_REGISTRO_ABORDAGEM_SRV/$metadata"/>
+                <atom:link
+                    xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/opu/odata/sap/ZSEHS_REGISTRO_ABORDAGEM_SRV/$metadata"/>
+                </Schema>
+            </edmx:DataServices>
+        </edmx:Edmx>

@@ -1,0 +1,30 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog id="ResponsavelHelpFrag" title="{i18n>TitleDialogHelpResp}" showHeader="true">
+		<Toolbar>
+			<SearchField id="SearchFieldResponsaveis" placeholder="{i18n>SearchFieldMatricula}" search="onFilterResponsaveis"/>
+		</Toolbar>
+		<Table id="HelpTableResponsaveis" fixedLayout="false" items="{registrarAbordagem>/ListaResponsaveis}" growing="true" growingThreshold="50"
+			growingScrollToLoad="true">
+			<columns>
+				<Column hAlign="Center" demandPopin="true" minScreenWidth="Desktop">
+					<Text text="{i18n>columnMatricula}"/>
+				</Column>
+				<Column hAlign="Center" demandPopin="true" minScreenWidth="Desktop">
+					<Text text="{i18n>columnNome}"/>
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem type="Active" press="valueHelpSetResponsavel">
+					<cells>
+						<Text text="{registrarAbordagem>PERNR}"/>
+						<Text text="{registrarAbordagem>ENAME}"/>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+		<endButton>
+			<Button text="{i18n>btnFechar}" type="Ghost" press="onCloseDialog('ResponsavelHelpFrag')"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
