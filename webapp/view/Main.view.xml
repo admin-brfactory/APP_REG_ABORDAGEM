@@ -19,11 +19,11 @@
 						<Label text="{i18n>lblData}" required="true"/>
 						<DatePicker id="Data" displayFormat="dd/MM/yyyy" placeholder="dd/MM/aaaa"/>
 						<Label text="{i18n>lblEmpresaAbordada}" required="true"/>
-						<ComboBox id="EmpresaAbordada" items="{registrarAbordagem>/ListaEmprAbordada}">
+						<ComboBox id="EmpresaAbordada" items="{path: 'registrarAbordagem>/ListaEmprAbordada', length: '3000'}">
 							<core:Item key="{registrarAbordagem>VALUE}" text="{registrarAbordagem>TEXT}"/>
 						</ComboBox>
 						<Label text="{i18n>lblAreaAbordada}" required="true"/>
-						<ComboBox id="AreaAbordada" items="{registrarAbordagem>/ListaAreaAbordada}" change="onChangeAreaAbordada">
+						<ComboBox id="AreaAbordada" items="{path: 'registrarAbordagem>/ListaAreaAbordada', length: '3000'}" change="onChangeAreaAbordada">
 							<core:Item key="{registrarAbordagem>VALUE}"
 								text="{= ${registrarAbordagem>VALUE} !== '' ? ${parts: [{path: 'registrarAbordagem>TEXT'}, {value: '-'}, {path: 'registrarAbordagem>VALUE'}]} : ${registrarAbordagem>TEXT}}"/>
 						</ComboBox>

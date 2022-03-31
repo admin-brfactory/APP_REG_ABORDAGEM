@@ -288,9 +288,14 @@ sap.ui.define([
 			var ResponsavelBinding = aTipoResponsavel.path.split("/"); // Busca se o binding é Responsavel: principal, 1, 2 ou 3
 			var tipoResponsavel = "/" + ResponsavelBinding[1];
 			var matricula = oEvent.getSource().getValue();
+			var isResPrincipal = "";
 			matricula = matricula !== "" && matricula.match(/\d+/g) !== null ? matricula.match(/\d+/g)[0] : ""; //Pega apenas o valor número do componente que disparou o evento
-
-			var sURL = "/GET_DADOS_RESPONSAVEISSet(PERNR='" + matricula + "')";
+			
+			if (tipoResponsavel === "/ResponsavelPrincipal"){
+				isResPrincipal = "X"; // Quando setado para "X", o oData retorna também a lista de locais de instalação para a matricula
+			}
+			
+			var sURL = "/GET_DADOS_RESPONSAVEISSet(PERNR='" + matricula + "',IS_RESP_PRINCIPAL='" + isResPrincipal + "')";
 
 			/***
 			 * Se a matricula estiver vazia a RFC retorna o usuário logado, 
@@ -318,6 +323,14 @@ sap.ui.define([
 					oViewmodel.setProperty(tipoResponsavel + "/NOME", oData.NOME_RESPONSAVEL);
 					oViewmodel.setProperty(tipoResponsavel + "/MATRICULA", oData.PERNR);
 					oViewmodel.setProperty(tipoResponsavel + "/UNIDADE_ORGANIZACIONAL", oData.UNIDADE_ORGANIZACIONAL);
+					
+					if(oData.LISTA_LOCAIS_INSTALACAO){
+						var oLocaisInst = JSON.parse(oData.LISTA_LOCAIS_INSTALACAO);
+						
+						if(oLocaisInst.length !== 0){
+							oViewmodel.setProperty("/ListaLocaisInst", oLocaisInst);
+						}
+					}
 
 					oViewmodel.refresh(true);
 
